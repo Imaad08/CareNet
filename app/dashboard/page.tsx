@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Info } from "lucide-react";
 import Link from "next/link";
 
-export default function Home() {
+export default function Page() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar /> 
