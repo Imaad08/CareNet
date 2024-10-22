@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CareNet
 
-## Getting Started
+CareNet is a platform that connects freelance caregivers with people in need of care for conditions like Alzheimer's and dementia, as well as for infants. Our mission is to make quality care accessible and to provide opportunities for skilled caregivers.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Usage](#usage)
+- [How it is built](#how-it-is-built)
+- [Contact](#contact)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- User-friendly interface for both caregivers and care seekers
+- Profile creation and management for caregivers
+- Page dedicated to listing caregivers out
+- SMS notifications after a caregiver applies
+- Verification system for enhanced safety and trust
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How it is built
+- Built using the NextJS app router in typescript
+- Uses Clerk API for secure sign in
+- MongoDB stores user data and post data
+- Uses TextBelt API to send a notification to care seekers via SMS
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+After visiting the website, you can:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create an account as a caregiver or care seeker by adding or ommitting a resume and going to the dashboard
+2. Set up your profile with relevant information
+3. Search for caregiving opportunities or caregivers
+4. Use the SMS system to get information about caregivers so you can text them and coordinate.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact
 
-## Deploy on Vercel
+If you have any questions or feedback, please reach out to me at imaadmuzaffer@gmail.com
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Thank you for your interest in CareNet!

@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, LogIn, Menu, X } from "lucide-react";
 import Link from "next/link";
+import { UserButton, useUser } from "@clerk/nextjs";  
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasShadow, setHasShadow] = useState(false);
+  const { isSignedIn } = useUser();  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -25,7 +27,7 @@ export default function Navbar() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, []);  
 
   return (
     <header className={`sticky top-0 z-50 px-4 lg:px-6 h-14 flex items-center justify-between bg-white transition-shadow duration-300 ${hasShadow ? 'shadow-md' : ''}`}>
@@ -43,22 +45,29 @@ export default function Navbar() {
           isMenuOpen ? "block" : "hidden"
         } lg:flex lg:items-center lg:gap-4 sm:gap-6 absolute lg:static top-14 left-0 w-full lg:w-auto bg-white lg:bg-transparent transition-all duration-300 ease-in-out ${isMenuOpen && hasShadow ? 'shadow-md' : ''}`}
       >
-        <Link className="block lg:inline-block text-sm font-medium hover:underline underline-offset-4 p-4 lg:p-0" href="#">
-          Services
+        <Link className="block lg:inline-block text-sm font-medium hover:underline underline-offset-4 p-4 lg:p-0" href="/guide">
+          Guide
         </Link>
-        <Link className="block lg:inline-block text-sm font-medium hover:underline underline-offset-4 p-4 lg:p-0" href="#">
+        <Link className="block lg:inline-block text-sm font-medium hover:underline underline-offset-4 p-4 lg:p-0" href="/caregivers">
           Caregivers
-        </Link>
-        <Link className="block lg:inline-block text-sm font-medium hover:underline underline-offset-4 p-4 lg:p-0" href="#">
-          Resources
         </Link>
         <Link href="/dashboard">
           <Button variant="ghost" size="sm" className="flex items-center p-4 lg:p-0">
             <LogIn className="mr-2 h-4 w-4" />
-            Login
+            Dashboard
           </Button>
         </Link>
+        {isSignedIn && (
+          <div className="lg:hidden p-4">
+            <UserButton />
+          </div>
+        )}
       </nav>
+      {isSignedIn && (
+        <div className="hidden lg:block">
+          <UserButton />
+        </div>
+      )}
     </header>
   );
 }
